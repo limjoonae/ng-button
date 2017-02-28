@@ -1,0 +1,4 @@
+<button *ngIf="iconPos != 'right'" type="button" [id]="id" [name]="name" class="{{buttonStyleClass}}" [customDisabled]="disable">
+    <i class="{{iconStyleClass}}"></i> {{label}}</button>
+<button *ngIf="iconPos == 'right'" type="button" [id]="id" [name]="name" class="{{buttonStyleClass}}" [customDisabled]="disable">
+    {{label}} <i class="{{iconStyleClass}}"></i></button>

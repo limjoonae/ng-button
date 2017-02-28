@@ -1,0 +1,310 @@
+<ul class="nav nav-tabs" role="tablist">
+	<li class="nav-item"><a class="nav-link active" href="#Overview"
+		role="tab" data-toggle="tab">Overview</a></li>
+	<li class="nav-item"><a class="nav-link" href="#Document" role="tab"
+		data-toggle="tab">Document</a></li>
+	<li class="nav-item"><a class="nav-link" href="#Example" role="tab"
+		data-toggle="tab">Example</a></li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+	<div role="tabpanel" class="tab-pane fade in active" id="Overview">
+		<div class="jumbotron">
+			<h2>Component {{componentTag}}</h2><br>
+			<div class="row">
+				<div class="col-md-6">
+					<strong>Description</strong>
+					<!--<markdown>
+						Button คือปุ่มใช้ในการเรียก action ต่างๆ หรือ link ไปยัง page อื่น โดยเป็นปุ่ม type="button"
+					</markdown>
+					<strong>Feature</strong>
+					<markdown>
+						* เปิด-ปิด การใช้งานปุ่ม
+						* เปลี่ยนสีปุ่ม
+						* เปลี่ยนขนาดปุ่ม
+						* สามารถใส่รูปใส่ลงบนปุ่มได้
+						* เปลี่ยนขนาดรูปที่ใส่บนปุ่ม
+					</markdown>-->
+				</div>
+				<div class="col-md-6">
+					<p><strong>Version: {{version}}</strong>
+					</p>
+					<p><strong>Release Date: {{releaseDate}}</strong>
+					</p>
+					<p><strong>Credit: <a href="{{creditUrl}}">{{credit}}</a></strong></p>
+				</div>
+			</div>
+		</div>
+	</div>
+  	<div role="tabpanel" class="tab-pane fade" id="Document">
+		<div class="jumbotron">
+			<h2>Syntax</h2>
+			<code>{{prefixSyntax}}<em>{{attrSyntax}}</em>{{suffixSyntax}}</code>
+		</div>
+		<div class="jumbotron">
+			<h2>Attributes</h2>
+			<small>* = require</small>
+			<table class="table">
+				<thead>
+					<tr>
+						<th></th>
+						<th>Attribute</th>
+						<th>Type</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let attribute of attributeList">
+						<th scope="row">{{attribute.require}}</th>
+						<td>{{attribute.name}}</td>
+						<td><em>{{attribute.type}}</em></td>
+						<td>{{attribute.description}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="jumbotron">
+			<h2>Icon Name</h2>
+			<p>ในส่วนของรูปสามารถเลือกได้จาก <strong><em><a href="http://fontawesome.io/icons/" target="_blank">Font Awesome</a></em></strong> (อ้างอิงเวอร์ชั่น <strong>{{fontAwesomeVersion}})</strong> โดยนำเฉพาะชื่อของ icon มาใส่เท่านั้น</p>
+		</div>
+		<div class="jumbotron">
+			<h2>Event</h2>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Parameter</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let event of eventList">
+						<td>{{event.name}}</td>
+						<td><em>{{event.parameter}}</em></td>
+						<td>{{event.description}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="jumbotron">
+			<h2>Getting Started</h2>
+			<p><li>systemjs.config.js</li></p>
+			<pre><code *ngFor="let line of systemjsLine">{{line}}<br></code></pre><br>
+			<p><li>app.module.ts</li></p>
+			<pre><code *ngFor="let line of appModuleLine">{{line}}<br></code></pre>
+			<p><li>css</li></p>
+            <p><li style="list-style-type:none">
+                    <ul>
+                        <li>index.html</li>
+                    </ul>
+            </li></p>
+			<pre><code>{{htmlImport}}</code></pre><br>
+            <p>หรือ</p>
+            <p><li style="list-style-type:none">
+                    <ul>
+                        <li>style.css</li>
+                    </ul>
+            </li></p>
+			<pre><code>{{cssImport}}</code></pre>
+		</div>
+	</div>
+	<div role="tabpanel" class="tab-pane fade" id="Example">
+		<!--<div class="container-fluid">-->
+		<div class="jumbotron">
+			<div class="row row-in-tab">
+				<div class="col-md-3">
+					<h6>Default Button</h6>
+					<div class="text-xs-center"><gos-button label="default button"></gos-button></div><br>
+				</div>
+				<div class="col-md-9">
+					<div role="tab" id="ex_1">
+						<h5 class="mb-0">
+							<a class="collapsed" data-toggle="collapse" href="#collapse_ex_1" aria-expanded="false" aria-controls="collapse_ex_1">
+							Code Example#1
+							</a>
+						</h5>
+					</div>
+					<div id="collapse_ex_1" class="collapse" role="tabpanel" aria-labelledby="ex_1">
+						<div class="jumbotron">
+							<code>&lt;gos-button label="default button"&gt;&lt;/gos-button&gt;</code>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row row-in-tab">
+				<div class="col-md-3">
+					<h6>Color Button</h6>
+					<div class="text-xs-center"><gos-button label="primary" buttonColor="primary"></gos-button></div><br>
+					<div class="text-xs-center"><gos-button label="secondary" buttonColor="secondary"></gos-button></div><br>
+					<div class="text-xs-center"><gos-button label="success" buttonColor="success"></gos-button></div><br>
+					<div class="text-xs-center"><gos-button label="info" buttonColor="info"></gos-button></div><br>
+					<div class="text-xs-center"><gos-button label="warning" buttonColor="warning"></gos-button></div><br>
+					<div class="text-xs-center"><gos-button label="danger" buttonColor="danger"></gos-button></div><br>
+				</div>
+				<div class="col-md-9">
+					<div role="tab" id="ex_2">
+						<h5 class="mb-0">
+							<a class="collapsed" data-toggle="collapse" href="#collapse_ex_2" aria-expanded="false" aria-controls="collapse_ex_2">
+							Code Example#2
+							</a>
+						</h5>
+					</div>
+					<div id="collapse_ex_2" class="collapse" role="tabpanel" aria-labelledby="ex_2">
+						<div class="jumbotron">
+							<code>&lt;gos-button label="primary" buttonColor="primary"&gt;&lt;/gos-button&gt;</code><br>
+							<code>&lt;gos-button label="secondary" buttonColor="secondary"&gt;&lt;/gos-button&gt;</code><br>
+							<code>&lt;gos-button label="success" buttonColor="success"&gt;&lt;/gos-button&gt;</code><br>
+							<code>&lt;gos-button label="info" buttonColor="info"&gt;&lt;/gos-button&gt;</code><br>
+							<code>&lt;gos-button label="warning" buttonColor="warning"&gt;&lt;/gos-button&gt;</code><br>
+							<code>&lt;gos-button label="danger" buttonColor="danger"&gt;&lt;/gos-button&gt;</code><br>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row row-in-tab">
+				<div class="col-md-3">
+					<h6>Outline Color Button</h6>
+					<div class="text-xs-center"><gos-button label="outline-primary" buttonColor="outline-primary"></gos-button></div><br>
+					<div class="text-xs-center"><gos-button label="outline-secondary" buttonColor="outline-secondary"></gos-button></div><br>
+					<div class="text-xs-center"><gos-button label="outline-success" buttonColor="outline-success"></gos-button></div><br>
+					<div class="text-xs-center"><gos-button label="outline-info" buttonColor="outline-info"></gos-button></div><br>
+					<div class="text-xs-center"><gos-button label="outline-warning" buttonColor="outline-warning"></gos-button></div><br>
+					<div class="text-xs-center"><gos-button label="outline-danger" buttonColor="outline-danger"></gos-button></div><br>
+				</div>
+				<div class="col-md-9">
+					<div role="tab" id="ex_3">
+						<h5 class="mb-0">
+							<a class="collapsed" data-toggle="collapse" href="#collapse_ex_3" aria-expanded="false" aria-controls="collapse_ex_3">
+							Code Example#3
+							</a>
+						</h5>
+					</div>
+					<div id="collapse_ex_3" class="collapse" role="tabpanel" aria-labelledby="ex_3">
+						<div class="jumbotron">
+							<code>&lt;gos-button label="outline-primary" buttonColor="outline-primary"&gt;&lt;/gos-button&gt;</code><br>
+							<code>&lt;gos-button label="outline-secondary" buttonColor="outline-secondary"&gt;&lt;/gos-button&gt;</code><br>
+							<code>&lt;gos-button label="outline-success" buttonColor="outline-success"&gt;&lt;/gos-button&gt;</code><br>
+							<code>&lt;gos-button label="outline-info" buttonColor="outline-info"&gt;&lt;/gos-button&gt;</code><br>
+							<code>&lt;gos-button label="outline-warning" buttonColor="outline-warning"&gt;&lt;/gos-button&gt;</code><br>
+							<code>&lt;gos-button label="outline-danger" buttonColor="outline-danger"&gt;&lt;/gos-button&gt;</code><br>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row row-in-tab">
+				<div class="col-md-3">
+					<h6>Button Sizing</h6>
+					<div class="text-xs-center"><gos-button label="small" buttonColor="primary" buttonSize="sm"></gos-button></div><br>
+					<div class="text-xs-center"><gos-button label="default size" buttonColor="primary"></gos-button></div><br>
+					<div class="text-xs-center"><gos-button label="large" buttonColor="primary" buttonSize="lg"></gos-button></div><br>
+				</div>
+				<div class="col-md-9">
+					<div role="tab" id="ex_4">
+						<h5 class="mb-0">
+							<a class="collapsed" data-toggle="collapse" href="#collapse_ex_4" aria-expanded="false" aria-controls="collapse_ex_4">
+							Code Example#4
+							</a>
+						</h5>
+					</div>
+					<div id="collapse_ex_4" class="collapse" role="tabpanel" aria-labelledby="ex_4">
+						<div class="jumbotron">
+							<code>&lt;gos-button label="small" buttonColor="primary" buttonSize="sm"&gt;&lt;/gos-button&gt;</code><br>
+							<code>&lt;gos-button label="default size" buttonColor="primary"&gt;&lt;/gos-button&gt;</code><br>
+							<code>&lt;gos-button label="large" buttonColor="primary" buttonSize="lg"&gt;&lt;/gos-button&gt;</code><br>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row row-in-tab">
+				<div class="col-md-3">
+					<h6>Image Button &amp; Image Sizing</h6>
+					<div class="text-xs-center"><gos-button iconName="camera"></gos-button></div><br>
+					<div class="text-xs-center"><gos-button buttonColor="success" iconName="camera"></gos-button></div><br>
+					<div class="text-xs-center"><gos-button buttonColor="success" iconName="camera" iconSize="lg"></gos-button></div><br>
+					<div class="text-xs-center"><gos-button buttonColor="success" iconName="camera" iconSize="2x"></gos-button></div><br>
+					<div class="text-xs-center"><gos-button buttonColor="success" iconName="camera" iconSize="3x"></gos-button></div><br>
+					<div class="text-xs-center"><gos-button buttonColor="success" iconName="camera" iconSize="4x"></gos-button></div><br>
+					<div class="text-xs-center"><gos-button buttonColor="success" iconName="camera" iconSize="5x"></gos-button></div><br>
+				</div>
+				<div class="col-md-9">
+					<div role="tab" id="ex_5">
+						<h5 class="mb-0">
+							<a class="collapsed" data-toggle="collapse" href="#collapse_ex_5" aria-expanded="false" aria-controls="collapse_ex_5">
+							Code Example#5
+							</a>
+						</h5>
+					</div>
+					<div id="collapse_ex_5" class="collapse" role="tabpanel" aria-labelledby="ex_5">
+						<div class="jumbotron">
+							<code>&lt;gos-button iconName="camera"&gt;&lt;/gos-button&gt;</code><br>
+							<code>&lt;gos-button buttonColor="success" iconName="camera"&gt;&lt;/gos-button&gt;</code><br>
+							<code>&lt;gos-button buttonColor="success" iconName="camera" iconSize="lg"&gt;&lt;/gos-button&gt;</code><br>
+							<code>&lt;gos-button buttonColor="success" iconName="camera" iconSize="2x"&gt;&lt;/gos-button&gt;</code><br>
+							<code>&lt;gos-button buttonColor="success" iconName="camera" iconSize="3x"&gt;&lt;/gos-button&gt;</code><br>
+							<code>&lt;gos-button buttonColor="success" iconName="camera" iconSize="4x"&gt;&lt;/gos-button&gt;</code><br>
+							<code>&lt;gos-button buttonColor="success" iconName="camera" iconSize="5x"&gt;&lt;/gos-button&gt;</code><br>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row row-in-tab">
+				<div class="col-md-3">
+					<h6>Image Button with Text</h6>
+					<div class="text-xs-center">
+						<div class="text-xs-center"><gos-button label="Snap!" iconName="camera" buttonColor="warning"></gos-button></div><br>
+						<div class="text-xs-center"><gos-button label="Snap!" iconName="camera" buttonColor="warning" iconPos="right"></gos-button></div><br>
+					</div>
+				</div>
+				<div class="col-md-9">
+					<div role="tab" id="ex_6">
+						<h5 class="mb-0">
+							<a class="collapsed" data-toggle="collapse" href="#collapse_ex_6" aria-expanded="false" aria-controls="collapse_ex_6">
+							Code Example#6
+							</a>
+						</h5>
+					</div>
+					<div id="collapse_ex_6" class="collapse" role="tabpanel" aria-labelledby="ex_6">
+						<div class="jumbotron">
+							<code>&lt;gos-button label="Snap!" iconName="camera" buttonColor="warning"&gt;&lt;/gos-button&gt;</code><br>
+							<code>&lt;gos-button label="Snap!" iconName="camera" buttonColor="warning" iconPos="right"&gt;&lt;/gos-button&gt;</code><br>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row row-in-tab">
+				<div class="col-md-3">
+					<h6>Button with Event</h6>
+					<div class="text-xs-center">
+						<gos-button label="Click Me" buttonColor="danger" (click)="myClick()"></gos-button><br>Count: {{count}}
+					</div>
+				</div>
+				<div class="col-md-9">
+					<div role="tab" id="ex_7">
+						<h5 class="mb-0">
+							<a class="collapsed" data-toggle="collapse" href="#collapse_ex_7" aria-expanded="false" aria-controls="collapse_ex_7">
+							Code Example#7
+							</a>
+						</h5>
+					</div>
+					<div id="collapse_ex_7" class="collapse" role="tabpanel" aria-labelledby="ex_7">
+						<div class="jumbotron">
+							<code>&lt;gos-button label="Click Me" buttonColor="danger" (click)="myClick()"&gt;&lt;/gos-button&gt;</code><br>
+							<code>{{countCode}}</code>
+							<p></p>
+							<p>component.ts</p>
+							<pre>
+<code>private count: number = 0;
+
+myClick() &#123;
+      this.count++;
+  &#125;</code>
+							</pre>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
