@@ -4,3 +4,5 @@ component/*.js
 component/*.js.map
 test/*.js
 test/*.js.map
+button.module.js
+button.module.js.map
