@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+const VERSION: string = '1.0.0';
+const CDN_URL: string = 'http://10.182.247.73/gos-cdn/';
 const ATTRIBUTELIST: Array<any> = [
     { require: '*', name: 'id', type: 'text', description: `ใช้สำหรับระบุ id ของปุ่ม`},
     { require: '*', name: 'name', type: 'text', description: `ใช้สำหรับระบุ name ของปุ่ม`},
@@ -20,21 +22,21 @@ const EVENTLIST: Array<any> = [
 
 const SYSTEMJSLINE: Array<any> = [
     `map: {`,
-    ` 'gos-button': 'gos:button/{version}',`,
-    ` 'gos-directive': 'gos:directive/{version}',`,
-    ` 'gos-service': 'gos:service/{version}',`,
+    ` 'go-button': 'gos:button/`+VERSION+`',`,
+    ` 'go-directive': 'gos:directive/`+VERSION+`',`,
+    ` 'go-service': 'gos:service/`+VERSION+`',`,
     `},`,
     ``,
     `packages: {`,
-    ` 'gos-button': {`,
-    `    main: './button.js',`,
+    ` 'go-button': {`,
+    `    main: './button.module.js',`,
     `    defaultExtension: 'js'`,
     `  },`,   
-    ` 'gos-directive': {`,
+    ` 'go-directive': {`,
     `    main: './index.js',`,
     `    defaultExtension: 'js'`,
     `  },`,   
-    ` 'gos-service': {`,
+    ` 'go-service': {`,
     `    main: './index.js',`,
     `    defaultExtension: 'js'`,
     `  },`,   
@@ -43,14 +45,12 @@ const SYSTEMJSLINE: Array<any> = [
 ];
 
 const APPMODULELINE: Array<any> = [
-    `import { ButtonComponent } from 'gos-button';`,
-    `import { CustomDisabledDirective } from 'gos-directive';`,
+    `import { ButtonModule }  from 'go-button';`,
     ``,
     `@NgModule({`,
-    `   declarations: [`,
+    `   imports: [`,
     `   ..........`,
-    `   ButtonComponent,`,
-    `   CustomDisabledDirective,`,
+    `   ButtonModule,`,
     `   ..........`,
     `],`,
 ];
@@ -63,23 +63,22 @@ const APPMODULELINE: Array<any> = [
 })
 export class ButtonDocument implements OnInit {
 
-  private cdn_url: string = 'http://10.182.247.173/angular-cdn/font-awesome/';
-  private componentTag: string = '<gos-button>';
+  private componentTag: string = '<go-button>';
   private componentDescription: string = `Button ใช้ในการเรียกใช้ action ต่างๆ`;
-  private version: string = '1.0';
+  private version: string = VERSION;
   private releaseDate: string = '7/12/2016';
   private credit: string = '-';
   private creditUrl: string = '/';
-  private prefixSyntax: string = `<gos-button `;
+  private prefixSyntax: string = `<go-button `;
   private attrSyntax: string = `id="button_id" name="button_name" [label="label_name"] [disable="true_or_false"] [buttonColor="color_theme"] [buttonSize="sm_or_lg"] [iconName="icon_name"] [iconSize="icon_size"] [iconPos="right_position"]`;
-  private suffixSyntax: string = `></gos-button>`;
+  private suffixSyntax: string = `></go-button>`;
   private attributeList = ATTRIBUTELIST;
   private systemjsLine = SYSTEMJSLINE;
   private appModuleLine = APPMODULELINE;
   private fontAwesomeVersion = '4.7.0';
   private eventList = EVENTLIST;
-  private htmlImport = `<link href="` + this.cdn_url + this.fontAwesomeVersion + `/css/font-awesome.min.css rel="stylesheet" type="text/css">`;
-  private cssImport = `@import url('` + this.cdn_url + this.fontAwesomeVersion + `/css/font-awesome.min.css');`;
+  private htmlImport = `<link href="` + CDN_URL + `font-awesome/` + this.fontAwesomeVersion + `/css/font-awesome.min.css rel="stylesheet" type="text/css">`;
+  private cssImport = `@import url('` + CDN_URL + `font-awesome/` + this.fontAwesomeVersion + `/css/font-awesome.min.css');`;
   private count: number = 0;
   private countCode = `Count: {{count}}`;
   
