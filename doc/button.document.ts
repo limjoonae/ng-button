@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import globalVar = require('global');
 
-const VERSION: string = '1.0.0';
-const CDN_URL: string = 'http://10.182.247.73/gos-cdn/';
+const VERSION = '1.0.0';
+
 const ATTRIBUTELIST: Array<any> = [
     { require: '*', name: 'id', type: 'text', description: `ใช้สำหรับระบุ id ของปุ่ม`},
     { require: '*', name: 'name', type: 'text', description: `ใช้สำหรับระบุ name ของปุ่ม`},
@@ -47,12 +48,13 @@ const SYSTEMJSLINE: Array<any> = [
 ];
 
 const APPMODULELINE: Array<any> = [
-    `import { ButtonModule }  from 'go-button';`,
+    `import { ButtonComponent }  from 'go-button';`,
+    `import { CustomDisabledDirective } from 'go-directive';`,
     ``,
     `@NgModule({`,
-    `   imports: [`,
+    `   declarations: [`,
     `   ..........`,
-    `   ButtonModule,`,
+    `   ButtonComponent, CustomDisabledDirective`,
     `   ..........`,
     `],`,
 ];
@@ -67,7 +69,7 @@ export class ButtonDocument implements OnInit {
 
   private componentTag: string = '<go-button>';
   private componentDescription: string = `Button ใช้ในการเรียกใช้ action ต่างๆ`;
-  private version: string = VERSION;
+  private version: string = globalVar.componentVersion;
   private releaseDate: string = '7/12/2016';
   private credit: string = '-';
   private creditUrl: string = '/';
@@ -80,11 +82,11 @@ export class ButtonDocument implements OnInit {
   private appModuleLine = APPMODULELINE;
   private fontAwesomeVersion = '4.7.0';
   private eventList = EVENTLIST;
-  private htmlImport = `<link href="` + CDN_URL + `font-awesome/` + this.fontAwesomeVersion + `/css/font-awesome.min.css rel="stylesheet" type="text/css">`;
-  private cssImport = `@import url('` + CDN_URL + `font-awesome/` + this.fontAwesomeVersion + `/css/font-awesome.min.css');`;
+  private htmlImport = `<link href="` + globalVar.cdnPath + `font-awesome/` + this.fontAwesomeVersion + `/css/font-awesome.min.css rel="stylesheet" type="text/css">`;
+  private cssImport = `@import url('` + globalVar.cdnPath + `font-awesome/` + this.fontAwesomeVersion + `/css/font-awesome.min.css');`;
   private count: number = 0;
   private countCode = `Count: {{count}}`;
-  
+
   constructor() { }
 
   ngOnInit() {
