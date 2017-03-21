@@ -1,8 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { BootstrapClassService, CommonService } from 'go-service';
+import { BootstrapClassService, CommonService } from '../../go-service/component/index';
 
 @Component({
-  moduleId: module.id,
   selector: 'go-button',
   templateUrl: './button.component.html',
   providers: [BootstrapClassService, CommonService]
