@@ -1,6 +1,6 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent }  from './app.component';
 
@@ -9,12 +9,14 @@ import { CustomDisabledDirective, CustomMaxlengthDirective, CustomReadonlyDirect
 
 import { ButtonDocument } from './go-button/doc/button.document';
 
+const appRoutes: Routes = [
+  {path: '', component: ButtonDocument}
+];
+
 @NgModule({
   imports:      [ 
     BrowserModule,
-    RouterModule.forRoot([
-      {path: '', component: ButtonDocument}
-    ])
+    RouterModule.forRoot(appRoutes, {useHash: true})
   ],
   declarations: [ 
     AppComponent,
