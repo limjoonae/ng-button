@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import globalVar = require('global');
+const componentVersion = '1.0';
+const cdnPath = 'http://10.182.247.73/go-cdn-dev/node_modules/';
 
 const VERSION = '1.0.0';
 
@@ -60,7 +61,6 @@ const APPMODULELINE: Array<any> = [
 ];
 
 @Component({
-  moduleId: module.id,
   selector: 'button-document',
   templateUrl: './button.document.html',
   styleUrls: ['./button.document.css']
@@ -69,7 +69,7 @@ export class ButtonDocument implements OnInit {
 
   private componentTag: string = '<go-button>';
   private componentDescription: string = `Button ใช้ในการเรียกใช้ action ต่างๆ`;
-  private version: string = globalVar.componentVersion;
+  private version: string = componentVersion;
   private releaseDate: string = '7/12/2016';
   private credit: string = '-';
   private creditUrl: string = '/';
@@ -82,8 +82,8 @@ export class ButtonDocument implements OnInit {
   private appModuleLine = APPMODULELINE;
   private fontAwesomeVersion = '4.7.0';
   private eventList = EVENTLIST;
-  private htmlImport = `<link href="` + globalVar.cdnPath + `font-awesome/` + this.fontAwesomeVersion + `/css/font-awesome.min.css rel="stylesheet" type="text/css">`;
-  private cssImport = `@import url('` + globalVar.cdnPath + `font-awesome/` + this.fontAwesomeVersion + `/css/font-awesome.min.css');`;
+  private htmlImport = `<link href="` + cdnPath + `font-awesome/css/font-awesome.min.css rel="stylesheet" type="text/css">`;
+  private cssImport = `@import url('` + cdnPath + `font-awesome/css/font-awesome.min.css');`;
   private count: number = 0;
   private countCode = `Count: {{count}}`;
 
